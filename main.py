@@ -79,3 +79,18 @@ print("Resumen por categorías:")
 
 for categoria, total in gastos_categorias.items():
     print(f"{categoria}: {total:.2f} €")
+
+# EJERCICIO 6: Añadir el 21% de IVA
+
+for usuario, compras in data.items():
+    for compra in compras:
+        precio = compra["precio"]
+        precio_con_iva = round(precio * 1.21, 2)
+
+        compra["precio_con_iva"] = precio_con_iva
+
+print("Productos con IVA:")
+
+for usuario, compras in data.items():
+    for compra in compras:
+        print(f"{compra['producto']}: {compra['precio_con_iva']:.2f} €")
