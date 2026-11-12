@@ -60,3 +60,22 @@ for usuario, compras in data.items():
 
 print(f"Producto más caro: {producto_mas_caro['producto']} ({producto_mas_caro['precio']:.2f} €)")
 print(f"Producto más barato: {producto_mas_barato['producto']} ({producto_mas_barato['precio']:.2f} €)")
+
+# EJERCICIO 5: Resumen por categorías
+
+gastos_categorias = {}
+
+for usuario, compras in data.items():
+    for compra in compras:
+        categoria = compra["categoria"]
+        precio = compra["precio"]
+
+        if categoria not in gastos_categorias:
+            gastos_categorias[categoria] = 0
+
+        gastos_categorias[categoria] += precio
+
+print("Resumen por categorías:")
+
+for categoria, total in gastos_categorias.items():
+    print(f"{categoria}: {total:.2f} €")
