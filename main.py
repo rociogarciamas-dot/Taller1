@@ -43,3 +43,20 @@ for usuario, compras in data.items():
         cliente_mas_compras = usuario
 
 print(f"Cliente con más artículos: {cliente_mas_compras} ({max_articulos} artículos)")
+
+# EJERCICIO 4: Producto más caro y más barato
+
+producto_mas_caro = None
+producto_mas_barato = None
+
+for usuario, compras in data.items():
+    for compra in compras:
+
+        if producto_mas_caro is None or compra["precio"] > producto_mas_caro["precio"]:
+            producto_mas_caro = compra
+
+        if producto_mas_barato is None or compra["precio"] < producto_mas_barato["precio"]:
+            producto_mas_barato = compra
+
+print(f"Producto más caro: {producto_mas_caro['producto']} ({producto_mas_caro['precio']:.2f} €)")
+print(f"Producto más barato: {producto_mas_barato['producto']} ({producto_mas_barato['precio']:.2f} €)")
